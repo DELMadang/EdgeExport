@@ -2,13 +2,14 @@
 
 uses
   Vcl.Forms,
-  uMain in 'uMain.pas' {Form4};
+  uMain in 'uMain.pas' {frmMain},
+  uExportImage in 'uExportImage.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TfrmMain, frmMain);
   Application.Run;
 end.

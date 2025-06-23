@@ -42,7 +42,7 @@ var
 implementation
 
 uses
-  uExportPNG;
+  uExportImage;
 
 {$R *.dfm}
 
@@ -59,12 +59,10 @@ begin
 end;
 
 procedure TfrmMain.btnExportPNGClick(Sender: TObject);
-const
-  Method = 'Page.captureScreenshot';
-  Params = '{"format":"png", "captureBeyondViewport":true}';
 begin
-  EdgeBrowser1.DefaultInterface.CallDevToolsProtocolMethod(Method, PWideChar(Params),
-    TCoreWebView2CallDevToolsProtocolMethodCompletedHandler.Create);
+  EdgeBrowser1.SaveToImage('D:\temp\edge.png');
+  EdgeBrowser1.SaveToImage('D:\temp\edge.jpeg', '{"format":"jpeg", "quality":75, "captureBeyondViewport":true}');
+  EdgeBrowser1.SaveToImage('D:\temp\edge.webp', '{"format":"webp", "captureBeyondViewport":true}');
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
